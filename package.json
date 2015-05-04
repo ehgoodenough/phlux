@@ -1,0 +1,17 @@
+{
+  "name": "phlux",
+  "version": "1.0.0",
+  "main": "phlux.js",
+  "description": "Build flux stores for your reactive data.",
+  "author": {
+    "name": "Andrew McPherson",
+    "email": "ehgoodenough@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ehgoodenough/phlux.git"
+  },
+  "scripts": {
+    "test": "jasmine-node ./ --verbose"
+  }
+}
