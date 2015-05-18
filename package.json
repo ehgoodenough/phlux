@@ -1,6 +1,6 @@
 {
   "name": "phlux",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "phlux.js",
   "description": "Build simple stores for your reactive data.",
   "author": {
