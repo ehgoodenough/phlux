@@ -1,6 +1,11 @@
 # Phlux #
 
-Build simple stores for your reactive data. Supports a minimalistic approach to [Flux](http://facebook.github.io/flux) to be used with [React](https://facebook.github.io/react).
+[![Build](https://travis-ci.org/ehgoodenough/phlux.svg)](https://travis-ci.org/ehgoodenough/phlux)
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://phlux.mit-license.org)
+
+Build simple stores for your reactive data.
+
+This is a minimalistic approach to [Flux](http://facebook.github.io/flux) to be used with [React](https://facebook.github.io/react).
 
 ## Installation ##
 
