@@ -1,45 +1,37 @@
 var Phlux = {
     createStore: function(protostore) {
-        //Initiate the store
-        //with some attributes
-        //for handling the data.
+        // Initiate the store
+        // with functionality.
         var store = {
-            data: new Object(),
+            data: {},
+            listeners: [],
             getData: function() {
                 return this.data
+            },
+            addListener: function(listener) {
+                this.listeners.push(listener)
+                return listener
             },
             trigger: function() {
                 for(var index in this.listeners) {
                     this.listeners[index](this.data)
                 }
-                return this
             },
-            addListener: function(listener) {
-                this.listeners.push(listener)
-                return this
-            },
-            listeners: []
         }
         for(var key in protostore) {
-            //Filter any values of
-            //the protostore that
-            //attempts to overwrite
-            //the getter function.
-            if(key === "getData") {
-                continue
+            // Filter any values of the
+            // protostore that attempts
+            // to overwrite functionality.
+            if(store[key] != undefined) {
+                if(key != "data") {
+                    continue
+                }
             }
-            //Copy over all values from
-            //the protostore to the store.
+            // Copy over all values from
+            // the protostore to the store.
             store[key] = protostore[key]
-            //Grab any functions from the
-            //store to add as listeners.
-            if(typeof protostore[key] === "function") {
-                //If you wanted to add an additional
-                //trigger at the end of each and every
-                //method, here is where you do it.
-            }
         }
-        //Initiate the store.
+        // Initiate the store.
         if(store.initiateStore !== undefined
         && typeof store.initiateStore === "function") {
             store.initiateStore()
@@ -50,14 +42,22 @@ var Phlux = {
         return {
             componentWillMount: function() {
                 Store.addListener(function(data) {
-                    var state = new Object()
-                    state[label] = data
+                    var state = {}
+                    if(label !== null) {
+                        state[label] = data
+                    } else {
+                        state = data
+                    }
                     this.setState(state)
                 }.bind(this))
             },
             getInitialState: function() {
-                var state = new Object()
-                state[label] = Store.getData()
+                var state = {}
+                if(label !== null) {
+                    state[label] = data
+                } else {
+                    state = data
+                }
                 return state
             }
         }

@@ -71,8 +71,7 @@ describe("phlux", function() {
     
     it("will execute functions that are listening to the store", function() {
         var store = Phlux.createStore()
-        var listener = createSpy()
-        store.addListener(listener)
+        var listener = store.addListener(jasmine.createSpy())
         store.trigger()
         expect(listener).toHaveBeenCalled()
     })
@@ -84,8 +83,8 @@ describe("phlux", function() {
             }
         }
         var store = Phlux.createStore(protostore)
-        var listener = createSpy()
-        store.addListener(listener).trigger()
+        var listener = store.addListener(jasmine.createSpy())
+        store.trigger()
         expect(listener).toHaveBeenCalledWith(protostore.data)
     })
 })
