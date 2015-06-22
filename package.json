@@ -1,6 +1,6 @@
 {
   "name": "phlux",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "phlux.js",
   "license": "mit",
   "description": "Build simple stores for your reactive data.",
