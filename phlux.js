@@ -54,9 +54,9 @@ var Phlux = {
             getInitialState: function() {
                 var state = {}
                 if(label !== null) {
-                    state[label] = data
+                    state[label] = Store.data
                 } else {
-                    state = data
+                    state = Store.data
                 }
                 return state
             }
